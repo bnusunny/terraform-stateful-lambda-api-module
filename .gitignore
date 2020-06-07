@@ -1,0 +1,6 @@
+.terraform/
+dist/
+
+*.tfstate
+*.tfstate.backup
+terraform-provider-aws
