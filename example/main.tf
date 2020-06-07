@@ -7,7 +7,7 @@ module "lambda_file_system_api" {
 
   deployment_package = "./dist/function.zip"
   handler = "app.lambda_handler"
-  runtime = "python3.7"
+  runtime = "python3.8"
 
   local_mount_path = "/mnt/shared"
 

@@ -1,6 +1,7 @@
 .terraform/
 dist/
+venv/
 
-*.tfstate
-*.tfstate.backup
+*.tfstate*
+
 terraform-provider-aws
