@@ -1,5 +1,10 @@
 # EFS file system
 resource "aws_efs_file_system" "efs_for_lambda" {
+
+  performance_mode = var.performance_mode
+  throughput_mode = var.throughput_mode
+  provisioned_throughput_in_mibps = var.provisioned_throughput
+
   tags = {
     Name = var.name
   }

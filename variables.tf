@@ -25,7 +25,7 @@ variable "runtime" {
 
 variable "timeout" {
   description = "lambda function timeout"
-  default = 3
+  default = 10
 }
 
 variable "memory_size" {
@@ -36,4 +36,19 @@ variable "memory_size" {
 variable "local_mount_path" {
   description = "local mount path inside lambda function. must start with '/mnt/'. default is '/mnt/shared'"
   default = "/mnt/shared"
+}
+
+variable "efs_throughput_mode" {
+  description = "Throughput mode for the file system. Defaults to bursting. Valid values: bursting, provisioned. When using provisioned, also set provisioned_throughput_in_mibps"
+  default = "bursting"
+}
+
+variable "efs_provisioned_throughput" {
+  description = "The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`"
+  default = 1024
+}
+
+variable "availability_zones" {
+  description = "availability zones for the vpc"
+  default = ["us-east-1a", "us-east-1b", "us-east-1c"]
 }

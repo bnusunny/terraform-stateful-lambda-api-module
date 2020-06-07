@@ -41,13 +41,18 @@ module "efs" {
   name = "${var.stage}-${var.name}-efs"
   subnet_ids = module.vpc.private_subnetes
   security_group_ids = [module.vpc.sg_for_lambda.id]
-
+  provisioned_throughput = var.efs_provisioned_throughput
+  throughput_mode = var.efs_throughput_mode
 }
 
 module "vpc" {
   source = "./modules/vpc"
 
   name = "${var.stage}-${var.name}-vpc"
+  vpc_cidr = "10.0.0.0/16"
+  azs = var.availability_zones
+  public_subnet_cidrs = ["10.0.96.0/20", "10.0.112.0/20", "10.0.128.0/20"]
+  private_subnet_cidrs = ["10.0.0.0/20", "10.0.16.0/20", "10.0.32.0/20"]
 }
 
 module "iam" {
