@@ -22,9 +22,10 @@ variable "performance_mode" {
 
 variable "throughput_mode" {
   description = "Throughput mode for the file system. Defaults to bursting. Valid values: bursting, provisioned. When using provisioned, also set provisioned_throughput_in_mibps"
-  default = "bursting"
+  default = null
 }
 
 variable "provisioned_throughput" {
   description = "The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`"
+  default = null
 }

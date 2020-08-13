@@ -25,7 +25,7 @@ variable "runtime" {
 
 variable "timeout" {
   description = "lambda function timeout"
-  default = 10
+  default = 3
 }
 
 variable "memory_size" {
@@ -40,12 +40,12 @@ variable "local_mount_path" {
 
 variable "efs_throughput_mode" {
   description = "Throughput mode for the file system. Defaults to bursting. Valid values: bursting, provisioned. When using provisioned, also set provisioned_throughput_in_mibps"
-  default = "bursting"
+  default = null
 }
 
 variable "efs_provisioned_throughput" {
   description = "The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`"
-  default = 1024
+  default = null
 }
 
 variable "availability_zones" {
