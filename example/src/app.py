@@ -9,8 +9,6 @@ app = Flask(__name__)
 MOUNT_PATH = os.environ.get('LOCAL_MOUNT_PATH') or '.'
 DATA_FILE = MOUNT_PATH + '/msg.txt'
 
-print("DATA_FILE=", DATA_FILE)
-
 
 @app.route('/msg', methods=['GET'])
 def get_records():
@@ -19,7 +17,6 @@ def get_records():
             content = f.read()
     else:
         content = "no messages"
-    print("content=", content)
     return content
 
 
